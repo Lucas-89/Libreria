@@ -20,9 +20,9 @@ namespace LibreriaDigital.Servicios
         public LibrosServicio(){
             ListaLibros= new List<Libro>()
             {
-                new Libro(){Id=1,Nombre="El Principito", Genero="Fantasia"},
-                new Libro(){Id=2,Nombre="IT", Genero="Terror"},
-                new Libro(){Id=3,Nombre="Don Quijote", Genero="Novela"}
+                new Libro(){Id=1,Nombre="El Principito", Genero="Fantasia", Formato="Normal", CantHojas=12, TapaDura=true, FechaPublicacion=new DateTime(1986,10,16),Calificacion=2},
+                new Libro(){Id=2,Nombre="IT", Genero="Terror", Formato="De Bolsillo", CantHojas=300, TapaDura=false, FechaPublicacion=new DateTime(2000,12,20),Calificacion=3},
+                new Libro(){Id=3,Nombre="Don Quijote", Genero="Novela",  Formato="Extendido", CantHojas=221, TapaDura=true, FechaPublicacion=new DateTime(1977,09,02),Calificacion=1}
             };
         }
         public List<Libro> MostrarTodos(){

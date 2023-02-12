@@ -8,8 +8,9 @@ namespace LibreriaDigital.Modelos
 {
     public class Libro
     {
-        
+        [Required]
         public int Id{get;set;}
+        [Required]
         public string Nombre{get;set;}
         public string Genero{get;set;}
        

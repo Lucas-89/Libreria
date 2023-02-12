@@ -1,19 +1,19 @@
 ﻿@page
 @model LibreriaDigital.Pages.Libros.EditarModel
-@{
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
 }
 <form method="post">
  
    <div class="form-group">
         <label class="form-label" asp-for="LibroEd.Id">ID</label>
         <input class="asp-control" asp-for="LibroEd.Id"/>
-      
+        <span asp-validation-for="LibroEd.Id"></span>
     </div>
     <div class="form-group">
         <label class="form-label" asp-for="LibroEd.Nombre">Nombre</label>
         <input class="asp-control" asp-for="LibroEd.Nombre"/> 
-    
-
+        <span asp-validation-for="LibroEd.Nombre"></span>
     </div>
     @*
         Genero lo quiero hacer desplegable

@@ -22,8 +22,14 @@ namespace LibreriaDigital.Pages.Libros
         }
         public IActionResult OnPost()
         {
-           _libServicio.Editar(LibroEd);
-           return RedirectToPage("Listado");
+            if (ModelState.IsValid)
+            {
+              _libServicio.Editar(LibroEd);
+           return RedirectToPage("Listado");  
+            }
+           else{
+                return Page();
+           }
         }
     }
 }
