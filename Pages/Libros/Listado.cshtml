@@ -1,0 +1,34 @@
+﻿@page
+@model LibreriaDigital.Pages.Libros.ListadoModel
+@{
+}
+<h1>Inventario de Libros</h1>
+
+<a href="/Libros/Nuevo" class="btn btn-warning"> Nuevo</a>
+
+<table class="table">
+    <head>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Accion</th>
+        </tr>    
+    </head>
+    <tbody>
+       @foreach (var libro in Model.ListaStock)
+       {
+         <tr>
+             <td>@libro.Id</td>
+             <td>@libro.Nombre</td>
+             <td>@libro.Genero</td>
+             <td>
+                <a asp-page="Editar" asp-route-id="@libro.Id" class="btn btn-warning">Modificar</a>
+             </td>
+         </tr>
+         
+       }
+        
+    </tbody>
+
+</table>

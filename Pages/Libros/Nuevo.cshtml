@@ -1,0 +1,64 @@
+﻿@page
+@model LibreriaDigital.Pages.Libros.NuevoModel
+@{
+}
+
+<form method="post">
+ 
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroIng.Id">ID</label>
+        <input class="asp-control" asp-for="LibroIng.Id"/>
+    </div>
+   <div class="form-group">
+        <label class="form-label" asp-for="LibroIng.Nombre">Nombre</label>
+        <input class="asp-control" asp-for="LibroIng.Nombre"/> 
+     
+
+    </div>
+    <div>
+        <label for="LibroIng.Genero">Genero</label>
+        <input asp-for="LibroIng.Genero"/>
+    </div>
+    <div>
+        <label for="LibroIng.Formato">Formato</label>
+        <input asp-for="LibroIng.Formato"/>
+    </div>
+    <div>
+        <label for="LibroIng.CantHojas">Cantidad de Hojas</label>
+        <input asp-for="LibroIng.CantHojas"/>
+    </div>
+    <div>
+        <label for="LibroIng.TapaDura">Tapa Dura</label>
+        <input asp-for="LibroIng.TapaDura"/>
+    </div>  
+    <div>
+        <label for="LibroIng.FechaPublicacion">Fecha de Publicacion</label>
+        <input type="date" asp-for="LibroIng.FechaPublicacion"/>
+    </div>
+  
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">No Recomendable</label>
+            <input class="form-check-input" type="radio" asp-for="LibroIng.Calificacion" value="1" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Posible Recomendacion</label>
+            <input class="form-check-input" type="radio" asp-for="LibroIng.Calificacion" value="2" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Recomendado</label>
+            <input class="form-check-input" type="radio" asp-for="LibroIng.Calificacion" value="3" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Muy Recomendado</label>
+            <input class="form-check-input" type="radio" asp-for="LibroIng.Calificacion" value="4" />
+        </div>
+    </div>
+    
+
+    <div class="form-group">
+        <input class="form-control"  type="submit" value="Guardar">
+    </div>
+</form>
+
+<a href="/Libros/Nuevo" class="btn btn-black">Cancelar</a>

@@ -1,0 +1,82 @@
+﻿@page
+@model LibreriaDigital.Pages.Libros.EditarModel
+@{
+}
+<form method="post">
+ 
+   <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.Id">ID</label>
+        <input class="asp-control" asp-for="LibroEd.Id"/>
+      
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.Nombre">Nombre</label>
+        <input class="asp-control" asp-for="LibroEd.Nombre"/> 
+    
+
+    </div>
+    @*
+        Genero lo quiero hacer desplegable
+    *@
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.Genero">Genero</label>
+        <input class="asp-control" asp-for="LibroEd.Genero"/>
+       
+
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.Formato">Formato</label>
+        <input class="asp-control" asp-for="LibroEd.Formato"/>
+     
+
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.CantHojas">Cantidad de Hojas</label>
+        <input class="asp-control" asp-for="LibroEd.CantHojas"/>
+     
+
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.TapaDura">Tapa Dura</label>
+        <input class="asp-control"  asp-for="LibroEd.TapaDura"/>
+     
+
+    </div>  
+    <div class="form-group">
+        <label class="form-label" asp-for="LibroEd.FechaPublicacion">Fecha de Publicacion</label>
+        <input class="asp-control" type="date" asp-for="LibroEd.FechaPublicacion"/>
+    </div>
+   @*         
+    Clasificacion es un radio button con varias opciones
+    1 - No recomendable
+    2 - Posible recomendacion
+    3 - Recomendado
+    4 - Muy Recomendado
+    *@
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">No Recomendable</label>
+            <input class="form-check-input" type="radio" asp-for="LibroEd.Calificacion" value="1" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Posible Recomendacion</label>
+            <input class="form-check-input" type="radio" asp-for="LibroEd.Calificacion" value="2" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Recomendado</label>
+            <input class="form-check-input" type="radio" asp-for="LibroEd.Calificacion" value="3" />
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">Muy Recomendado</label>
+            <input class="form-check-input" type="radio" asp-for="LibroEd.Calificacion" value="4" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-danger"  type="submit" value="ACTUALIZAR" />
+    </div> 
+</form>
+
+<div>
+    <a asp-page="Listado" class="btn btn-dark">Cancelar</a>
+</div>
