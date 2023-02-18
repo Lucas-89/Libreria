@@ -20,9 +20,19 @@ namespace LibreriaDigital.Servicios
         public LibrosServicio(){
             ListaLibros= new List<Libro>()
             {
-                new Libro(){Id=1,Nombre="El Principito", Genero="Fantasia", Formato="Normal", CantHojas=12, TapaDura=true, FechaPublicacion=new DateTime(1986,10,16),Calificacion=2},
-                new Libro(){Id=2,Nombre="IT", Genero="Terror", Formato="De Bolsillo", CantHojas=300, TapaDura=false, FechaPublicacion=new DateTime(2000,12,20),Calificacion=3},
-                new Libro(){Id=3,Nombre="Don Quijote", Genero="Novela",  Formato="Extendido", CantHojas=221, TapaDura=true, FechaPublicacion=new DateTime(1977,09,02),Calificacion=1}
+                new Libro(){Id=1,Nombre="El Principito", Genero="Fantasia", Formato="Normal", CantHojas=120, TapaDura=true, FechaPublicacion=1943,Calificacion=2},
+                new Libro(){Id=2,Nombre="IT", Genero="Terror", Formato="De Bolsillo", CantHojas=300, TapaDura=false, FechaPublicacion=1986,Calificacion=3},
+                new Libro(){Id=3,Nombre="Don Quijote", Genero="Parodia",  Formato="Extendido", CantHojas=462, TapaDura=true, FechaPublicacion=1605,Calificacion=1},
+                new Libro(){Id=4,Nombre="1984", Genero="Ciencia Ficcion",  Formato="Normal", CantHojas=352, TapaDura=true, FechaPublicacion=1949,Calificacion=1},
+                new Libro(){Id=5,Nombre="Como Ganar Amigos e Influir Sobre las Personas", Genero="Autoayuda",  Formato="Extendido", CantHojas=318, TapaDura=true, FechaPublicacion=1936,Calificacion=1},
+                new Libro(){Id=6,Nombre="Cronicas Marcianas", Genero="Ciencia Ficcion",  Formato="Extendido", CantHojas=268, TapaDura=true, FechaPublicacion=1950,Calificacion=1},
+                new Libro(){Id=7,Nombre="El Gato Negro", Genero="Terror",  Formato="Normal", CantHojas=136, TapaDura=true, FechaPublicacion=1809,Calificacion=1},
+                new Libro(){Id=8,Nombre="El Poder del Ahora", Genero="Autoayuda",  Formato="De Bolsillo", CantHojas=220, TapaDura=true, FechaPublicacion=1997,Calificacion=1},
+                new Libro(){Id=9,Nombre="Harry Potter y la Piedra Filosofal", Genero="Fantasia",  Formato="Extendido", CantHojas=256, TapaDura=true, FechaPublicacion=1997,Calificacion=1},
+                new Libro(){Id=10,Nombre="La Hija Del Tiempo", Genero="Policial",  Formato="De Bolsillo", CantHojas=260, TapaDura=true, FechaPublicacion=1951,Calificacion=1},
+                new Libro(){Id=11,Nombre="Los Cuatro Acuerdos", Genero="Autoayuda",  Formato="Extendido", CantHojas=160, TapaDura=true, FechaPublicacion=1998,Calificacion=1},
+                new Libro(){Id=12,Nombre="Viaje al Centro de la Tierra", Genero="Ciencia Ficcion",  Formato="De Bolsillo", CantHojas=360, TapaDura=true, FechaPublicacion=1864,Calificacion=1}
+
             };
         }
         public List<Libro> MostrarTodos(){

@@ -18,8 +18,8 @@ namespace LibreriaDigital.Modelos
         
         public int CantHojas{get;set;}
         public bool TapaDura{get;set;}
-        public DateTime FechaPublicacion {get;set;}
-        public int Calificacion{get;set;}
+        public int FechaPublicacion {get;set;}
+        public int Calificacion{get;set;} //esto es un checkbox de 4 opciones
 
        // public Autor AutorLibro{get;set;}
     }

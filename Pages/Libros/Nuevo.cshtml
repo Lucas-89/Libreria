@@ -1,19 +1,20 @@
 ﻿@page
 @model LibreriaDigital.Pages.Libros.NuevoModel
-@{
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
 }
 
-<form method="post">
+<form method="post" >
  
     <div class="form-group">
         <label class="form-label" asp-for="LibroIng.Id">ID</label>
         <input class="asp-control" asp-for="LibroIng.Id"/>
+        <span asp-validation-for="LibroIng.Id"></span>
     </div>
    <div class="form-group">
         <label class="form-label" asp-for="LibroIng.Nombre">Nombre</label>
         <input class="asp-control" asp-for="LibroIng.Nombre"/> 
-     
-
+        <span asp-validation-for="LibroIng.Nombre"></span>
     </div>
     <div>
         <label for="LibroIng.Genero">Genero</label>
@@ -33,7 +34,7 @@
     </div>  
     <div>
         <label for="LibroIng.FechaPublicacion">Fecha de Publicacion</label>
-        <input type="date" asp-for="LibroIng.FechaPublicacion"/>
+        <input asp-for="LibroIng.FechaPublicacion"/>
     </div>
   
     <div class="form-group">

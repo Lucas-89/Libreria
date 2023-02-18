@@ -8,8 +8,18 @@ namespace LibreriaDigital.Pages.Libros
 {
     public class DetalleModel : PageModel
     {
-        public void OnGet()
+        [BindProperty]
+        public Libro LibroDet{get;set;}
+
+        private ILibroServicio _libserv;
+
+        public DetalleModel(ILibroServicio libSvr){
+            _libserv= libSvr;
+        }
+        public void OnGet(int Id)
         {
+            var detalle= _libserv.MostrarTodos();
+            LibroDet= detalle.Where(x=>x.Id==Id).First();
         }
     }
 }

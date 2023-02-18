@@ -18,9 +18,10 @@ namespace LibreriaDigital.Pages.Libros
         {
           
         }
-        public void OnPost()
+        public IActionResult OnPost()
         {
           _libIngresado.Agregar(LibroIng);
+          return RedirectToPage("Listado");
         }
     }
 }

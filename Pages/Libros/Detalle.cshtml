@@ -2,3 +2,34 @@
 @model LibreriaDigital.Pages.Libros.DetalleModel
 @{
 }
+@functions{
+ void MostrarTapaDura(bool tapa){
+        if(tapa){
+          <span>Tapa Dura</span>
+        }
+        else{
+           <span>Tapa Blanda</span>
+      }
+    }
+  async Task FotoLibro(int idLibro){
+    <img class="img-fluid rounded-start" src="@Url.Content("~/imagenes" + idLibro + ".jpg")"/>
+  }
+}
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="Foto Libro">
+  <div class="card-body">
+    <h5 class="card-title">@Model.LibroDet.Nombre</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Genero: @Model.LibroDet.Genero</li>
+    <li class="list-group-item">Formato: @Model.LibroDet.Formato</li>
+    <li class="list-group-item">Paginas: @Model.LibroDet.CantHojas</li>
+    <li class="list-group-item">@{MostrarTapaDura(@Model.LibroDet.TapaDura); }  </li>
+    <li class="list-group-item">Edicion: @Model.LibroDet.FechaPublicacion</li>
+   @* <li class="list-group-item">Recomendable: @Model.LibroDet.Calificacion</li> *@
+  </ul>
+  <div class="card-body">
+    <a asp-page="Listado" class="btn btn-dark">Volver</a>
+  </div>
+</div>

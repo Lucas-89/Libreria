@@ -2,28 +2,91 @@
 @model LibreriaDigital.Pages.Libros.ListadoModel
 @{
 }
+@functions{
+    void MostrarTapaDura(bool tapa){
+        if(tapa){
+            <span>Tapa Dura</span>
+        }
+        else{
+            <span>Tapa Blanda</span>
+        }
+    }
+    
+    void LibroCalif(int cal){
+        switch(cal){
+            case 1:
+                <span>No Recomendable</span>
+                break;
+            case 2:
+                <span>Posible Recomendacion</span>
+                break;
+            case 3:
+                <span>Recomendado</span>
+                break;
+            case 4:
+            <span>Muy Recomendado</span>
+            break;
+        }
+    }
+}
 <h1>Inventario de Libros</h1>
 
 <a href="/Libros/Nuevo" class="btn btn-warning"> Nuevo</a>
 
-<table class="table">
-    <head>
+<form method="get">
+    <input type="text" placeholder="Bucar Nombre" name="FiltroNombre"/>
+    <input type="submit" class="btn btn-black" value="Buscar">
+</form>
+
+<table class="table table-hover">
+    <thead class="table-dark">
         <tr>
             <th>ID</th>
-            <th>Nombre</th>
+            <th>
+                <a asp-page="./Listado" asp-route-CampoOrden="@Model.NombreOrdenado">
+                Nombre
+                </a>
+            </th>
             <th>Genero</th>
+            <th>Tipo</th> @* Es el Formato, que podria ser digital o fisico*@
+            <th>Cant. de Hojas</th>
+            <th>Tapa</th>
+            <th>Publicado</th>
+            <th>Calificacion</th>
             <th>Accion</th>
         </tr>    
-    </head>
+    </thead>
     <tbody>
+        @if (Model.ListaStock.Count==0)
+        {
+            <tr>
+                <td colspan="4">Sin Resultados</td>
+            </tr>
+        }
+
+
        @foreach (var libro in Model.ListaStock)
        {
          <tr>
              <td>@libro.Id</td>
-             <td>@libro.Nombre</td>
+             <td>
+                <a asp-page="Detalle" asp-route-id="@libro.Id">@libro.Nombre</a>
+             </td>
              <td>@libro.Genero</td>
+             <td>@libro.Formato</td>
+             <td>@libro.CantHojas</td>
+             <td>
+                @{ MostrarTapaDura( @libro.TapaDura);}
+             </td>
+             <td>
+                @libro.FechaPublicacion
+             </td>
+             <td>
+                @{ LibroCalif(@libro.Calificacion); } 
+                </td>
              <td>
                 <a asp-page="Editar" asp-route-id="@libro.Id" class="btn btn-warning">Modificar</a>
+             <a asp-page="./Listado" asp-route-idBorar="@libro.Id" asp-page-handler="Borrar" class="btn btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</a>
              </td>
          </tr>
          
