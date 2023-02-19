@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LibreriaDigital.Modelos
 {
@@ -15,6 +16,7 @@ namespace LibreriaDigital.Modelos
 
         public string Nacionalidad{get;set;}
 
-        public bool COntenporaneo{get;set;}  // vivo o muerto
+        public bool Contenporaneo{get;set;}  // vivo o muerto
+        public List<Libro> Libros{get;set;}
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JWxG/mFE02jQuhg5FM3KLbdn9faWA/w0yzDiw1W9LVk=",
+  "Hash": "MphUnqIf12SQ949xAGWilQ72P8GkBxh0zI7P3PGG5bU=",
   "Source": "LibreriaDigital",
   "BasePath": "_content/LibreriaDigital",
   "Mode": "Default",
@@ -287,6 +287,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\imagenes\\Cuentos Policiales POE.jpg",
+      "SourceId": "LibreriaDigital",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\",
+      "BasePath": "_content/LibreriaDigital",
+      "RelativePath": "imagenes/Cuentos Policiales POE.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\imagenes\\Cuentos Policiales POE.jpg"
     },
     {
       "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\js\\site.js",

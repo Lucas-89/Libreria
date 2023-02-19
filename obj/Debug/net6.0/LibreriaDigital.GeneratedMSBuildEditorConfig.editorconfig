@@ -8,53 +8,53 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LibreriaDigital
 build_property.RootNamespace = LibreriaDigital
-build_property.ProjectDir = c:\Users\Lucas\OneDrive\Documentos\ISTEA\2022\Herramientas de Programacion 2022\LibreriaDigital\
+build_property.ProjectDir = C:\Users\Lucas\OneDrive\Documentos\ISTEA\2022\Herramientas de Programacion 2022\LibreriaDigital\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\Lucas\OneDrive\Documentos\ISTEA\2022\Herramientas de Programacion 2022\LibreriaDigital
+build_property.MSBuildProjectDirectory = C:\Users\Lucas\OneDrive\Documentos\ISTEA\2022\Herramientas de Programacion 2022\LibreriaDigital
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Error.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Index.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Detalle.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Detalle.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlicm9zXERldGFsbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Editar.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Editar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlicm9zXEVkaXRhci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Listado.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Listado.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlicm9zXExpc3RhZG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Nuevo.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Libros/Nuevo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlicm9zXE51ZXZvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Privacy.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/_ViewImports.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/_ViewStart.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Shared/_Layout.cshtml]
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-cq8k028ef8
