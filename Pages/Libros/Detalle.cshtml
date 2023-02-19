@@ -1,5 +1,7 @@
 ﻿@page
 @model LibreriaDigital.Pages.Libros.DetalleModel
+
+
 @{
 }
 @functions{
@@ -12,14 +14,15 @@
       }
     }
   async Task FotoLibro(int idLibro){
-    <img class="img-fluid rounded-start" src="@Url.Content("~/imagenes" + idLibro + ".jpg")"/>
+    <img class="img-fluid rounded-start" src="@Url.Content("~/imagenes/" + idLibro + ".jpg")"/>
   }
 }
 <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="Foto Libro">
+  @*<img src="@Url.Content("~/imagenes" + @Model.LibroDet.Id + ".jpg")" class="card-img-top" alt="Foto Libro">*@ 
+  @{await FotoLibro(@Model.LibroDet.Id);}
   <div class="card-body">
     <h5 class="card-title">@Model.LibroDet.Nombre</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card </p>
+    
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Genero: @Model.LibroDet.Genero</li>
