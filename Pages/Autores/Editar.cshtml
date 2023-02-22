@@ -1,0 +1,35 @@
+﻿@page
+@model LibreriaDigital.Pages.Autores.EditarModel
+@{
+}
+
+@section scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<form method="post" >
+ 
+    <div class="mb-3">
+        <label class="form-label" asp-for="AutorEd.Id">ID</label>
+        <input class="asp-control" asp-for="AutorEd.Id"/>
+        <span asp-validation-for="AutorEd.Id"></span>
+    </div>
+   <div class="form-group">
+        <label class="form-label" asp-for="AutorEd.Nombre">Nombre</label>
+        <input class="asp-control" asp-for="AutorEd.Nombre"/> 
+        <span asp-validation-for="AutorEd.Nombre"></span>
+    </div>
+    <div>
+        <label for="AutorEd.Nacionalidad">Nacionalidad</label>
+        <input asp-for="AutorEd.Nacionalidad"/>
+    </div>
+    <div class="form-group">
+        <label class="form-label" asp-for="AutorEd.Contemporaneo">Contemporaneo</label>
+        <input class="asp-control" asp-for="AutorEd.Contemporaneo"/>
+    </div>
+    <div class="form-group">
+        <input class="form-control"  type="submit" value="Actualizar">
+    </div>
+</form>
+
+<a href="/Libros/Nuevo" class="btn btn-black">Cancelar</a>

@@ -16,7 +16,7 @@ namespace LibreriaDigital.Modelos
 
         public string Nacionalidad{get;set;}
 
-        public bool Contenporaneo{get;set;}  // vivo o muerto
+        public bool Contemporaneo{get;set;}  // vivo o muerto
         public List<Libro> Libros{get;set;}
     }
 }

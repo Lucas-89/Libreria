@@ -1,0 +1,70 @@
+﻿@page
+@model LibreriaDigital.Pages.Autores.ListadoModel
+@{
+}
+
+@functions{
+    void MostrarContemporaneo(bool vivo){
+        if(vivo){
+            <span>Autor Contemporaneo</span>
+        }
+        else{
+            <span>No Contemporaneo</span>
+        }
+    }
+    
+}
+<h1>Inventario de Autores</h1>
+
+<a href="/Autores/Nuevo" class="btn btn-warning"> Nuevo</a>
+
+<form method="get">
+    <input type="text" placeholder="Bucar Nombre" name="FiltroNombre"/>
+    <input type="submit" class="btn btn-black" value="Buscar">
+</form>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>
+                <a asp-page="./Autores/Listado" asp-route-CampoOrden="@Model.NombreOrdenado">
+                Nombre
+                </a>
+            </th>
+            <th>Nacionalidad</th>
+            <th>Contemporaneo</th>
+            <th>Accion</th>
+        </tr>    
+    </thead>
+    <tbody>
+        @if (Model.ListaAutores.Count==0)
+        {
+            <tr>
+                <td colspan="4">Sin Resultados</td>
+            </tr>
+        }
+
+
+       @foreach (var autor in Model.ListaAutores)
+       {
+         <tr>
+             <td>@autor.Id</td>
+             <td>
+                <a asp-page="Detalle" asp-route-id="@autor.Id">@autor.Nombre</a>
+             </td>
+             <td>@autor.Nacionalidad</td>
+             <td>
+                @{MostrarContemporaneo(@autor.Contemporaneo) ;}
+             </td>
+             <td>
+             <a asp-page="Editar" asp-route-id="@autor.Id" class="btn btn-warning">Modificar</a>
+             <a asp-page="./Listado" asp-route-idBorar="@autor.Id" asp-page-handler="Borrar" class="btn btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</a>
+             </td>
+         </tr>
+         
+       }
+        
+    </tbody>
+
+</table>

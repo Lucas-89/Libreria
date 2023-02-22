@@ -21,7 +21,7 @@ namespace LibreriaDigital.Modelos
         public bool TapaDura{get;set;}
         public int FechaPublicacion {get;set;}
         public int Calificacion{get;set;} //esto es un checkbox de 4 opciones
-
+        public int AutorId{get;set;}
         public Autor Autor{get;set;}
     }
 }

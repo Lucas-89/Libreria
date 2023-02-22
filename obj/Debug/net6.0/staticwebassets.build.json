@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MphUnqIf12SQ949xAGWilQ72P8GkBxh0zI7P3PGG5bU=",
+  "Hash": "3gacqxSALxQJSjc2fJU/w5wLwLCSjlvuj522npG3q4A=",
   "Source": "LibreriaDigital",
   "BasePath": "_content/LibreriaDigital",
   "Mode": "Default",
@@ -204,12 +204,12 @@
       "OriginalItemSpec": "wwwroot\\imagenes\\4.jpg"
     },
     {
-      "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\imagenes\\5.jpeg",
+      "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\imagenes\\5.jpg",
       "SourceId": "LibreriaDigital",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\",
       "BasePath": "_content/LibreriaDigital",
-      "RelativePath": "imagenes/5.jpeg",
+      "RelativePath": "imagenes/5.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -218,7 +218,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imagenes\\5.jpeg"
+      "OriginalItemSpec": "wwwroot\\imagenes\\5.jpg"
     },
     {
       "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\imagenes\\6.jpg",
@@ -287,23 +287,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\imagenes\\9.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\imagenes\\Cuentos Policiales POE.jpg",
-      "SourceId": "LibreriaDigital",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\",
-      "BasePath": "_content/LibreriaDigital",
-      "RelativePath": "imagenes/Cuentos Policiales POE.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\imagenes\\Cuentos Policiales POE.jpg"
     },
     {
       "Identity": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2022\\Herramientas de Programacion 2022\\LibreriaDigital\\wwwroot\\js\\site.js",

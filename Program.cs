@@ -10,7 +10,9 @@ builder.Services.AddDbContext<LibreriaDbContext>(
     options=>options.UseSqlServer(builder.Configuration.GetConnectionString("AppConnectionString"))
 );
 
-builder.Services.AddSingleton<ILibroServicio,LibrosServicio>();
+builder.Services.AddTransient<ILibroServicio,LibrosServicio>();
+builder.Services.AddTransient<IAutorServicio,AutoresServicios>();
+
 
 var app = builder.Build();
 

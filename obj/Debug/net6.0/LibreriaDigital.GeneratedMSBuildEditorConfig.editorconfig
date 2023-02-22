@@ -15,6 +15,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Lucas\OneDrive\Documentos\ISTEA\2022\Herramientas de Programacion 2022\LibreriaDigital
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Autores/Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3Jlc1xEZXRhbGxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Autores/Editar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3Jlc1xFZGl0YXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Autores/Listado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3Jlc1xMaXN0YWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Autores/Nuevo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0b3Jlc1xOdWV2by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lucas/OneDrive/Documentos/ISTEA/2022/Herramientas de Programacion 2022/LibreriaDigital/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

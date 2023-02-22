@@ -1,0 +1,38 @@
+﻿@page
+@model LibreriaDigital.Pages.Autores.DetalleModel
+@{
+}
+@functions{
+/*
+ void MostrarTapaDura(bool tapa){
+        if(tapa){
+          <span>Tapa Dura</span>
+        }
+        else{
+           <span>Tapa Blanda</span>
+      }
+    }
+  async Task FotoLibro(int idAutor){
+    <img class="img-fluid rounded-start" src="@Url.Content("~/imagenes/" + idLibro + ".jpg")"/>
+  }
+*/
+}
+<div class="card" style="width: 18rem;">
+  @*<img src="@Url.Content("~/imagenes" + @Model.LibroDet.Id + ".jpg")" class="card-img-top" alt="Foto Libro">
+  @{await FotoLibro(@Model.AutorDet.Id);}
+  <div class="card-body">
+    <h5 class="card-title">@Model.AutorDet.Nombre</h5>
+    *@ 
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Genero: @Model.AutorDet.Nombre</li>
+    <li class="list-group-item">Formato: @Model.AutorDet.Nacionalidad</li>
+    <li class="list-group-item">Paginas: @Model.AutorDet.Contemporaneo</li>
+   @*  <li class="list-group-item">@{MostrarTapaDura(@Model.AutorDet.TapaDura); }  </li>
+    <li class="list-group-item">Edicion: @Model.AutorDet.FechaPublicacion</li>
+   <li class="list-group-item">Recomendable: @Model.LibroDet.Calificacion</li> *@
+  </ul>
+  <div class="card-body">
+    <a asp-page="Listado" class="btn btn-dark">Volver</a>
+  </div>
+</div>
