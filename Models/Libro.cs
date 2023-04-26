@@ -12,8 +12,8 @@ namespace Libreria.Models
     {
         public int Id{get;set;}
         public string Nombre{get;set;}
-        public string Autor{get;set;} // despues va ser relacion 1- Muchos
-
+        public int AutorId{get;set;} // despues va ser relacion 1- Muchos
+        public virtual Autor Autor {get;set;}
         public TipoCategoria Categoria {get;set;}
         public DateTime FechaPublicacion{get;set;}
 
