@@ -12,7 +12,7 @@ namespace Libreria.Models
         public string Nacionalidad {get;set;} 
 
         public bool Contemporaneo{get;set;} // vivo o muerto
-        public virtual List<Libro> Libros {get;set;} 
+      //  public virtual List<Libro> Libros {get;set;} 
         
     }
 }

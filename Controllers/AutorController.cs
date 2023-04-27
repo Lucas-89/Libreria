@@ -58,7 +58,7 @@ namespace Libreria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) // ACA
             {
                 _context.Add(autor);
                 await _context.SaveChangesAsync();

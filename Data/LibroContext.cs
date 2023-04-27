@@ -18,6 +18,7 @@ namespace Libreria.Data
 
         public DbSet<Libreria.Models.Autor> Autor { get; set; } = default!;
 
+        /*
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Autor>()
@@ -25,5 +26,6 @@ namespace Libreria.Data
             .WithOne(p=>p.Autor)
             .HasForeignKey(p=>p.AutorId); // si no funciona, probar con p.Id (de Libros)
         }
+        */
     }
 }
