@@ -27,7 +27,7 @@ namespace Libreria.Controllers
 
                 if (!string.IsNullOrEmpty(NombreFiltrado))
                 {
-                    query = query.Where(x=>x.Nombre.Contains(NombreFiltrado));
+                    query = query.Where(x=>x.Nombre.ToLower().Contains(NombreFiltrado.ToLower()));
                 }
 
                 var model =new LibroViewModel();
@@ -68,7 +68,8 @@ namespace Libreria.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,NombreAutor,Categoria,FechaPublicacion,Paginas,Tapa")] Libro libro)
-        {
+        {   
+            ModelState.Remove("Autor");
             if (ModelState.IsValid)
             {
                 _context.Add(libro);

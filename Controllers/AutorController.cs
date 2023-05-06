@@ -58,6 +58,7 @@ namespace Libreria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
         {
+            ModelState.Remove("Libros"); // cambiarlo por una viewmodel de AutorCreate
             if (ModelState.IsValid) // ACA
             {
                 _context.Add(autor);
