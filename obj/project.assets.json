@@ -10085,11 +10085,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\Libreria.csproj",
+      "projectUniqueName": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\Libreria.csproj",
       "projectName": "Libreria",
-      "projectPath": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\Libreria.csproj",
+      "projectPath": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\Libreria.csproj",
       "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\obj\\",
+      "outputPath": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -3,24 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Libreria.Utils;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 
 namespace Libreria.Models
 {
     public class Libro
     {
-        public int Id{get;set;}
-        public string Nombre{get;set;}
-        public string NombreAutor {get;set;}
-        public int AutorId{get;set;} // Relacion 1- Muchos
-        public virtual Autor Autor {get;set;}
-        public TipoCategoria Categoria {get;set;}
-        public DateTime FechaPublicacion{get;set;}
-
-        //[Display(Paginas="Cantidad de Paginas")]  No funciona
-        public int Paginas{get;set;}
-        public bool Tapa{get;set;} //tapa dura = true
-
+        public int Id {get;set;}
+        public string Titulo {get;set;}
+        public TipoGenero Genero {get;set;}
+        public int CantPaginas{get;set;}
+        public int AutorId{get;set;}
+        public virtual Autor Autor{get;set;}
     }
 }

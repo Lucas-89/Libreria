@@ -7,35 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
-using Libreria.ViewModels;
 
 namespace Libreria.Controllers
 {
     public class LibroController : Controller
     {
-        private readonly LibroContext _context;
+        private readonly AutorContext _context;
 
-        public LibroController(LibroContext context)
+        public LibroController(AutorContext context)
         {
             _context = context;
         }
 
         // GET: Libro
-        public async Task<IActionResult> Index(string NombreFiltrado)
+        public async Task<IActionResult> Index()
         {
-            var query = from libro in _context.Libro select libro;
-
-                if (!string.IsNullOrEmpty(NombreFiltrado))
-                {
-                    query = query.Where(x=>x.Nombre.ToLower().Contains(NombreFiltrado.ToLower()));
-                }
-
-                var model =new LibroViewModel();
-                model.Libros = await query.ToListAsync();
-
-              return _context.Libro != null ? 
-                          View(model) :
-                          Problem("Entity set 'LibroContext.Libro'  is null.");
+            var autorContext = _context.Libro.Include(l => l.Autor);
+            return View(await autorContext.ToListAsync());
         }
 
         // GET: Libro/Details/5
@@ -47,6 +35,7 @@ namespace Libreria.Controllers
             }
 
             var libro = await _context.Libro
+                .Include(l => l.Autor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (libro == null)
             {
@@ -59,6 +48,7 @@ namespace Libreria.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id");
             return View();
         }
 
@@ -67,8 +57,8 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,NombreAutor,Categoria,FechaPublicacion,Paginas,Tapa")] Libro libro)
-        {   
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId")] Libro libro)
+        {
             ModelState.Remove("Autor");
             if (ModelState.IsValid)
             {
@@ -76,6 +66,7 @@ namespace Libreria.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
             return View(libro);
         }
 
@@ -92,6 +83,7 @@ namespace Libreria.Controllers
             {
                 return NotFound();
             }
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
             return View(libro);
         }
 
@@ -100,7 +92,7 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,NombreAutor,Categoria,FechaPublicacion,Paginas,Tapa")] Libro libro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Genero,CantPaginas,AutorId")] Libro libro)
         {
             if (id != libro.Id)
             {
@@ -127,6 +119,7 @@ namespace Libreria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
             return View(libro);
         }
 
@@ -139,6 +132,7 @@ namespace Libreria.Controllers
             }
 
             var libro = await _context.Libro
+                .Include(l => l.Autor)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (libro == null)
             {
@@ -155,7 +149,7 @@ namespace Libreria.Controllers
         {
             if (_context.Libro == null)
             {
-                return Problem("Entity set 'LibroContext.Libro'  is null.");
+                return Problem("Entity set 'AutorContext.Libro'  is null.");
             }
             var libro = await _context.Libro.FindAsync(id);
             if (libro != null)

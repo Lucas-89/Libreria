@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Libreria
 build_property.RootNamespace = Libreria
-build_property.ProjectDir = C:\Users\Lucas\OneDrive\Documentos\ISTEA\2023\Herramientas 2023\Libreria-1\
+build_property.ProjectDir = D:\ISTEA\2023\Herramientas 2023\Libreria-1\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Lucas\OneDrive\Documentos\ISTEA\2023\Herramientas 2023\Libreria-1
+build_property.MSBuildProjectDirectory = D:\ISTEA\2023\Herramientas 2023\Libreria-1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Create.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Delete.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Details.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Edit.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Index.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Autor/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0b3JcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Home/Index.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Home/Privacy.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Create.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Delete.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Details.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Edit.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Index.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Libro/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/Error.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/_ViewImports.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/_ViewStart.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Lucas/OneDrive/Documentos/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/_Layout.cshtml]
+[D:/ISTEA/2023/Herramientas 2023/Libreria-1/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6c52mou3ym

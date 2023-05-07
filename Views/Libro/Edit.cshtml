@@ -14,18 +14,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <label asp-for="Titulo" class="control-label"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NombreAutor" class="control-label"></label>
-                <input asp-for="NombreAutor" class="form-control" />
-                <span asp-validation-for="NombreAutor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Categoria" class="control-label"></label>
-                <select asp-for="Categoria" class="form-control">
+                <label asp-for="Genero" class="control-label"></label>
+                <select asp-for="Genero" class="form-control">
                     <option value="0">Policial</option>
                     <option value="1">Ciencia Ficcion</option>
                     <option value="2">Terror</option>
@@ -33,22 +28,17 @@
                     <option value="4">Suspenso</option>
                     <option value="5">Cientifico</option>
                 </select>
-                <span asp-validation-for="Categoria" class="text-danger"></span>
+                <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FechaPublicacion" class="control-label"></label>
-                <input asp-for="FechaPublicacion" class="form-control" />
-                <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
+                <label asp-for="CantPaginas" class="control-label"></label>
+                <input asp-for="CantPaginas" class="form-control" />
+                <span asp-validation-for="CantPaginas" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Paginas" class="control-label"></label>
-                <input asp-for="Paginas" class="form-control" />
-                <span asp-validation-for="Paginas" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Tapa" /> @Html.DisplayNameFor(model => model.Tapa)
-                </label>
+                <label asp-for="AutorId" class="control-label"></label>
+                <select asp-for="AutorId" class="form-control" asp-items="ViewBag.AutorId"></select>
+                <span asp-validation-for="AutorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

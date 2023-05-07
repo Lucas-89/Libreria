@@ -1,6 +1,4 @@
-@using Libreria.ViewModels;
-
-@model LibroViewModel
+@model IEnumerable<Libreria.Models.Libro>
 
 @{
     ViewData["Title"] = "Index";
@@ -11,58 +9,38 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<div class="row">
-    <form method="get" asp-action="Index" asp-controller="Libro">
-        <div class="col-3 form-group">
-            <input class="form-class" asp-for="NombreFiltrado"/>
-        </div>
-        <button class="btn" type="submit">Buscar</button>
-    </form>
-</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Libros[0].Nombre)
+                @Html.DisplayNameFor(model => model.Titulo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Libros[0].NombreAutor)
+                @Html.DisplayNameFor(model => model.Genero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Libros[0].Categoria)
+                @Html.DisplayNameFor(model => model.CantPaginas)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Libros[0].FechaPublicacion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Libros[0].Paginas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Libros[0].Tapa)
+                @Html.DisplayNameFor(model => model.Autor)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Libros) {
+@foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.Titulo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NombreAutor)
+                @Html.DisplayFor(modelItem => item.Genero)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
+                @Html.DisplayFor(modelItem => item.CantPaginas)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FechaPublicacion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paginas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tapa)
+                @Html.DisplayFor(modelItem => item.Autor.Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

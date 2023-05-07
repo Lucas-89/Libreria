@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Libreria.Utils
 {
-    public enum TipoCategoria
+    public enum TipoGenero
     {
         Policial,
         CienciaFiccion,
         Terror,
-        Biofrafia,
+        Biografia,
         Suspenso,
         Cientifico
     }
