@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
+using Libreria.ViewModels;
 
 namespace Libreria.Controllers
 {
@@ -57,9 +58,18 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId")] Libro libro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId")] LibroCreateViewModel libro)
         {
-            ModelState.Remove("Autor");
+            var viewModel = new LibroCreateViewModel();
+            viewModel.Id= libro.Id;
+            viewModel.Titulo = libro.Titulo;
+            viewModel.Genero = libro.Genero.ToString();
+            viewModel.CantPaginas = libro.CantPaginas;
+            viewModel.AutorId = libro.AutorId;
+            
+
+            
+            //TODO: revisar que modelo hay que pasarle para que funcione
             if (ModelState.IsValid)
             {
                 _context.Add(libro);
@@ -67,7 +77,7 @@ namespace Libreria.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
-            return View(libro);
+            return View(viewModel);
         }
 
         // GET: Libro/Edit/5
