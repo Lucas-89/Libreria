@@ -7,3 +7,6 @@ Librería Digital, registro de Stock de libros para la venta
 </p>
 
 ![Badge en Desarollo](https://img.shields.io/badge/ESTADO-EN%20DESAROLLO-green)
+![Bugs](https://img.shields.io/badge/Days_Since_Last_BUG-0-red)
+![Patente](https://img.shields.io/badge/Licence-Not%20Found-inactive)
+
