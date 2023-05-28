@@ -63,11 +63,16 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
+        public IActionResult Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] AutorCreateViewModel autor)
         {
+            var autorModel = new Autor();
+            autorModel.Id = autor.Id;
+            autorModel.Nombre = autor.Nombre;
+            autorModel.Nacionalidad = autor.Nacionalidad;
+            autorModel.Contemporaneo = autor.Contemporaneo;
             if (ModelState.IsValid)
             {
-                _autorService.Create(autor);
+                _autorService.Create(autorModel);
                 return RedirectToAction(nameof(Index));
             }
             return View(autor);

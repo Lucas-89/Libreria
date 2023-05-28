@@ -69,8 +69,11 @@ namespace Libreria.Controllers
             viewModel.Id= libro.Id;
             viewModel.Titulo = libro.Titulo;
             viewModel.CantPaginas = libro.CantPaginas;
-            viewModel.AutorId = libro.AutorId;
+            viewModel.AutorId = libro.AutorId; 
             
+            //TODO:
+            // ver si aca es donde deberia poner una funcion 
+            // para que aparezca el nombre y no el id del autor
             if (ModelState.IsValid)
             {
                 _libroService.Create(viewModel);
