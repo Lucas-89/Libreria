@@ -1,12 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Libreria.Data;
+using Libreria.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AutorContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AutorContext") ?? throw new InvalidOperationException("Connection string 'AutorContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ILibroService, LibroService>();
+builder.Services.AddScoped<IAutorService, AutorService>();
+
 
 var app = builder.Build();
 

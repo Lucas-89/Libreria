@@ -8,48 +8,37 @@ using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
 using Libreria.ViewModels;
+using Libreria.Services;
 
 namespace Libreria.Controllers
 {
     public class AutorController : Controller
     {
-        private readonly AutorContext _context;
+        private readonly IAutorService _autorService;
 
-        public AutorController(AutorContext context)
+        public AutorController(IAutorService autorService)
         {
-            _context = context;
+            _autorService = autorService;
         }
 
         // GET: Autor
-        public async Task<IActionResult> Index(string NombreBuscado)
+        public IActionResult Index(string NombreBuscado)
         {
-            var query = from autor in _context.Autor select autor;
-
-            if (!string.IsNullOrEmpty(NombreBuscado))
-            {
-                query = query.Where(x => x.Nombre.ToLower().Contains(NombreBuscado.ToLower()));
-            }
-
-        // var libros = query.Include(x =>x.Libros).Select(p =>p.Libros).ToList();
-
             var model = new AutorViewModel();
-            model.Autores= await query.ToListAsync();
+            model.Autores= _autorService.GetAll(NombreBuscado);
 
-              return _context.Autor != null ? 
-                          View(model) :
-                          Problem("Entity set 'AutorContext.Autor'  is null.");
+            return View(model);
         }
 
         // GET: Autor/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
-            if (id == null || _context.Autor == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var autor = await _context.Autor.Include(m =>m.Libros)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var autor = _autorService.GetById(id.Value);
             if (autor == null)
             {
                 return NotFound();
@@ -74,26 +63,25 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
+        public IActionResult Create([Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(autor);
-                await _context.SaveChangesAsync();
+                _autorService.Create(autor);
                 return RedirectToAction(nameof(Index));
             }
             return View(autor);
         }
 
         // GET: Autor/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
-            if (id == null || _context.Autor == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var autor = await _context.Autor.FindAsync(id);
+            var autor = _autorService.GetById(id.Value);
             if (autor == null)
             {
                 return NotFound();
@@ -106,7 +94,7 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
+        public IActionResult Edit(int id, [Bind("Id,Nombre,Nacionalidad,Contemporaneo")] Autor autor)
         {
             if (id != autor.Id)
             {
@@ -117,8 +105,7 @@ namespace Libreria.Controllers
             {
                 try
                 {
-                    _context.Update(autor);
-                    await _context.SaveChangesAsync();
+                    _autorService.Update(autor);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -137,15 +124,14 @@ namespace Libreria.Controllers
         }
 
         // GET: Autor/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
-            if (id == null || _context.Autor == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var autor = await _context.Autor
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var autor = _autorService.GetById(id.Value);
             if (autor == null)
             {
                 return NotFound();
@@ -157,25 +143,15 @@ namespace Libreria.Controllers
         // POST: Autor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            if (_context.Autor == null)
-            {
-                return Problem("Entity set 'AutorContext.Autor'  is null.");
-            }
-            var autor = await _context.Autor.FindAsync(id);
-            if (autor != null)
-            {
-                _context.Autor.Remove(autor);
-            }
-            
-            await _context.SaveChangesAsync();
+            _autorService.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool AutorExists(int id)
         {
-          return (_context.Autor?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _autorService.GetById(id) != null;
         }
     }
 }

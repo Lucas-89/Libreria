@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fD1tLHgWmlnkkk4MBYcvpqzOuJuFv50wRc7R+dPH1Hc=",
+  "Hash": "ZuZH8/Uxe+PAVkfvp5XJQHPeIadbfNS0p0OwmSUK310=",
   "Source": "Libreria",
   "BasePath": "_content/Libreria",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\wwwroot\\Images\\Biblioteca.png",
+      "SourceId": "Libreria",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\wwwroot\\",
+      "BasePath": "_content/Libreria",
+      "RelativePath": "Images/Biblioteca.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Biblioteca.png"
     },
     {
       "Identity": "D:\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\wwwroot\\js\\site.js",
