@@ -14,5 +14,6 @@ namespace Libreria.Models
         public int CantPaginas{get;set;}
         public int AutorId{get;set;}
         public virtual Autor Autor{get;set;}
+        public List<Sucursal> Sucursales {get;set;}
     }
 }

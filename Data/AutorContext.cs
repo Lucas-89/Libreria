@@ -24,5 +24,7 @@ namespace Libreria.Data
             .WithOne(p => p.Autor)
             .HasForeignKey(p => p.AutorId);
         }
+
+        public DbSet<Libreria.Models.Sucursal> Sucursal { get; set; } = default!;
     }
 }

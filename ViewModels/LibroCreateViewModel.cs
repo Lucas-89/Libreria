@@ -13,8 +13,6 @@ namespace Libreria.ViewModels
         public string Genero {get;set;}
         public int CantPaginas{get;set;}
         public int AutorId{get;set;}
-       
-        
-
+        public List<Autor> autores{get;set;}
     }
 }

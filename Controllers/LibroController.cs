@@ -63,13 +63,16 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId")] LibroCreateViewModel libro)
+        public IActionResult Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId, autores")] LibroCreateViewModel libro)
         {
+            var autores = _autorService.GetAll().Where(x=> libro.AutorId.Equals(x.Id)).ToList();
+            
             var viewModel = new Libro();
             viewModel.Id= libro.Id;
             viewModel.Titulo = libro.Titulo;
             viewModel.CantPaginas = libro.CantPaginas;
-            viewModel.AutorId = libro.AutorId; 
+            viewModel.Autor = (Autor)autores; 
+            
             
             //TODO:
             // ver si aca es donde deberia poner una funcion 
@@ -79,7 +82,8 @@ namespace Libreria.Controllers
                 _libroService.Create(viewModel);
                 return RedirectToAction(nameof(Index));
             }
-           // ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId); //todavia no hice el _autorService
+            var autor = _autorService.GetAll();
+           ViewData["AutorId"] =new SelectList (autor,"Id", "NombreAutor"); //todavia no hice el _autorService
             return View(viewModel);
         }
 

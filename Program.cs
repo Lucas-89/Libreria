@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Libreria.Data;
 using Libreria.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+// builder.Services.AddDbContext<SucursalContext>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("SucursalContext") ?? throw new InvalidOperationException("Connection string 'SucursalContext' not found.")));
+
 builder.Services.AddDbContext<AutorContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AutorContext") ?? throw new InvalidOperationException("Connection string 'AutorContext' not found.")));
 
