@@ -30,6 +30,17 @@ public class LibroService : ILibroService
     {
         return _context.Libro.Include(l => l.Autor).ToList();
     }
+    public List<Libro> GetAll(string filter)
+    {
+        var query = from libro in _context.Libro select libro;
+        if (!string.IsNullOrEmpty(filter))
+        {
+            query = query.Where(x => x.Titulo.ToLower().Contains(filter.ToLower()));
+        }
+        return query.ToList();
+    }
+
+
 
     public Libro? GetById(int id)
     {

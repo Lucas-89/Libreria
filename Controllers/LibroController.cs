@@ -27,10 +27,11 @@ namespace Libreria.Controllers
         }
 
         // GET: Libro
-        public IActionResult Index() //aca estaba async
+        public IActionResult Index(string NombreBuscado) //aca estaba async
         {
-            var list =_libroService.GetAll();
-            return View(list);
+            var model = new LibroViewModel();
+            model.Libros =_libroService.GetAll(NombreBuscado);
+            return View(model);
         }
 
         // GET: Libro/Details/5
@@ -46,7 +47,7 @@ namespace Libreria.Controllers
             {
                 return NotFound();
             }
-
+            
             return View(libro); 
         }
 
@@ -63,15 +64,15 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId, autores")] LibroCreateViewModel libro)
+        public IActionResult Create([Bind("Id,Titulo,Genero,Precio,AutorId, autores")] LibroCreateViewModel libro)
         {
             var autores = _autorService.GetAll().Where(x=> libro.AutorId.Equals(x.Id)).ToList();
             
             var viewModel = new Libro();
             viewModel.Id= libro.Id;
             viewModel.Titulo = libro.Titulo;
-            viewModel.CantPaginas = libro.CantPaginas;
-            viewModel.Autor = (Autor)autores; 
+            viewModel.Precio = libro.Precio;
+            //viewModel.Autor = (Autor)autores; 
             
             
             //TODO:

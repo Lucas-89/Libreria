@@ -10,6 +10,7 @@ namespace Libreria.Services
     {
         void Create(Libro obj);
         List<Libro>GetAll();
+        List<Libro>GetAll(string filter);
         void Update(Libro obj); 
         void Delete(Libro obj);
         Libro? GetById(int id); //esto es el detalle?

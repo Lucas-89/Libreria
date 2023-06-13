@@ -11,7 +11,7 @@ namespace Libreria.ViewModels
         public int Id{get;set;}
         public string Titulo {get;set;}
         public string Genero {get;set;}
-        public int CantPaginas{get;set;}
+        public int Precio{get;set;}
         public int AutorId{get;set;}
         public List<Autor> autores{get;set;}
     }

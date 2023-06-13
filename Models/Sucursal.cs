@@ -10,6 +10,7 @@ namespace Libreria.Models
         public int Id {get;set;}
         public string NombreSucursal {get;set;}
         public string Direccion {get;set;}
+        public int Telefono{get;set;}
         public string Localidad{get;set;}
 
         public List<Libro> Libros {get;set;}

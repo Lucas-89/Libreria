@@ -11,7 +11,7 @@ namespace Libreria.Models
         public int Id {get;set;}
         public string Titulo {get;set;}
         public TipoGenero Genero {get;set;}
-        public int CantPaginas{get;set;}
+        public int Precio{get;set;}
         public int AutorId{get;set;}
         public virtual Autor Autor{get;set;}
         public List<Sucursal> Sucursales {get;set;}

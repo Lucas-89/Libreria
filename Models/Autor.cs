@@ -13,9 +13,5 @@ namespace Libreria.Models
         public bool Contemporaneo{get;set;}
         public virtual List<Libro> Libros{get;set;}
 
-        public static explicit operator Autor(List<Autor> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

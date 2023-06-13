@@ -105,7 +105,8 @@ namespace Libreria.Controllers
             {
                 return NotFound();
             }
-
+            // TODO: arreglar esto
+            ModelState.Remove("Libros");
             if (ModelState.IsValid)
             {
                 try
