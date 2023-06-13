@@ -67,7 +67,7 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad")] Sucursal sucursal)
+        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad")] SucursalCreateViewModel sucursal)
         {
             if (ModelState.IsValid)
             {

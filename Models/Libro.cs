@@ -15,6 +15,6 @@ namespace Libreria.Models
         public int Stock {get;set;}
         public int AutorId{get;set;}
         public virtual Autor Autor{get;set;}
-        public List<Sucursal> Sucursales {get;set;}
+        public virtual List<Sucursal> Sucursales {get;set;}
     }
 }

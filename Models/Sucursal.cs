@@ -12,6 +12,6 @@ namespace Libreria.Models
         public string Direccion {get;set;}
         public string Localidad{get;set;}
 
-        public List<Libro> Libros {get;set;}
+        public virtual List<Libro> Libros {get;set;}
     }
 }

@@ -13,6 +13,6 @@ namespace Libreria.ViewModels
         public string NombreSucursal {get;set;}
         public string Direccion {get;set;}
         public string Localidad{get;set;}
-        public Libro Libro {get;set;}
+       // public Libro Libro {get;set;}
     }
 }
