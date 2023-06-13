@@ -8,20 +8,25 @@ using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
 using Libreria.ViewModels;
+using Libreria.Services;
 
 namespace Libreria.Controllers
 {
     public class LibroController : Controller
     {
-        private readonly AutorContext _context;
+        private readonly AutorContext _context; // TODO SACAR ESTE CONTROLER
+        private readonly ILibroService _libroService;
+        private readonly IAutorService _autorService;
 
-        public LibroController(AutorContext context)
+        public LibroController(ILibroService libroService, IAutorService autorService, AutorContext context) //DE ACA TAMBIEN
         {
-            _context = context;
+              _context = context; // Y DE ACA TAMBIEN
+              _libroService = libroService;
+              _autorService = autorService;
         }
 
         // GET: Libro
-        public async Task<IActionResult> Index(string NombreBuscado)
+        public async Task<IActionResult> Index(string NombreBuscado) //ESTO TAMBIEN
         {
             var query = from libro in _context.Libro select libro;
             if (!string.IsNullOrEmpty(NombreBuscado))
@@ -30,21 +35,19 @@ namespace Libreria.Controllers
             }
             var model = new LibroViewModel();
             model.Libros = await query.ToListAsync();
-            var autorContext = _context.Libro.Include(l => l.Autor);
+            var autorContext = _libroService.GetAll();
             return View(model);
         }
 
         // GET: Libro/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Libro == null)
+            if (id == null )
             {
                 return NotFound();
             }
 
-            var libro = await _context.Libro
-                .Include(l => l.Autor)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var libro = _libroService.GetById(id.Value);
             if (libro == null)
             {
                 return NotFound();
@@ -56,7 +59,7 @@ namespace Libreria.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
-            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Nombre");
+            ViewData["AutorId"] = new SelectList(_autorService.GetAll(), "Id", "Nombre"); //implementar el GetAll
             return View();
         }
 

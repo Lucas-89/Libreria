@@ -12,6 +12,6 @@ namespace Libreria.Services
         List<Libro> GetAll();
         void Update(Libro obj );  
         void Delete(Libro obj);
-        Libro GetById(int id);
+        Libro? GetById(int id);
     }
 }
