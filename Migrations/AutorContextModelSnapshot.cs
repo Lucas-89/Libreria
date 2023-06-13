@@ -47,10 +47,13 @@ namespace Libreria.Migrations
                     b.Property<int>("AutorId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CantPaginas")
+                    b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Genero")
+                    b.Property<int>("Precio")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Stock")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")

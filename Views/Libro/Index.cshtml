@@ -7,38 +7,53 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Crear Nuevo Libro</a>
+    <a asp-action="Create">Create New</a>
 </p>
-    <table class="table table-striped">
-   
-        <thead>
-            <tr>
-                <th>@Html.DisplayNameFor(model => model.Titulo)</th>
-                <th>@Html.DisplayNameFor(model => model.Genero)</th>
-                <th>@Html.DisplayNameFor(model => model.CantPaginas)</th>
-                <th>@Html.DisplayNameFor(model => model.Autor.Nombre)</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
 @foreach (var item in Model) {
-        
-        
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
-                <td>@Html.DisplayFor(modelItem => item.Genero)</td>
-                <td>@Html.DisplayFor(modelItem => item.CantPaginas)</td>
-                <td>@Html.DisplayFor(modelItem => item.Autor.Nombre)</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> 
-                    <a asp-action="Details" asp-route-id="@item.Id">Detalle</a> 
-                    <a asp-action="Details" asp-route-id="@item.Id">Eliminar</a> 
-                </td>
-            </tr>
-        
-   
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
 }
     </tbody>
 </table>
-
-

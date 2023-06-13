@@ -7,54 +7,48 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
-using Libreria.ViewModels;
-using Libreria.Services;
 
 namespace Libreria.Controllers
 {
     public class LibroController : Controller
     {
-        private ILibroService _libroService;
-        private IAutorService _autorService;
+        private readonly AutorContext _context;
 
-        public LibroController(
-            ILibroService libroService,
-            IAutorService autorService
-            )
+        public LibroController(AutorContext context)
         {
-            _libroService = libroService;
-            _autorService = autorService;
+            _context = context;
         }
 
         // GET: Libro
-        public IActionResult Index() //aca estaba async
+        public async Task<IActionResult> Index()
         {
-            var list =_libroService.GetAll();
-            return View(list);
+            var autorContext = _context.Libro.Include(l => l.Autor);
+            return View(await autorContext.ToListAsync());
         }
 
         // GET: Libro/Details/5
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null )
+            if (id == null || _context.Libro == null)
             {
                 return NotFound();
             }
 
-            var libro = _libroService.GetById(id.Value);
+            var libro = await _context.Libro
+                .Include(l => l.Autor)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (libro == null)
             {
                 return NotFound();
             }
 
-            return View(libro); 
+            return View(libro);
         }
 
         // GET: Libro/Create
         public IActionResult Create()
         {
-            var autorList = _autorService.GetAll();
-            ViewData["AutorId"] = new SelectList(autorList, "Id", "Id");
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id");
             return View();
         }
 
@@ -63,44 +57,32 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Id,Titulo,Genero,CantPaginas,AutorId, autores")] LibroCreateViewModel libro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,Precio,Stock,AutorId")] Libro libro)
         {
-            var autores = _autorService.GetAll().Where(x=> libro.AutorId.Equals(x.Id)).ToList();
-            
-            var viewModel = new Libro();
-            viewModel.Id= libro.Id;
-            viewModel.Titulo = libro.Titulo;
-            viewModel.CantPaginas = libro.CantPaginas;
-            viewModel.Autor = (Autor)autores; 
-            
-            
-            //TODO:
-            // ver si aca es donde deberia poner una funcion 
-            // para que aparezca el nombre y no el id del autor
             if (ModelState.IsValid)
             {
-                _libroService.Create(viewModel);
+                _context.Add(libro);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            var autor = _autorService.GetAll();
-           ViewData["AutorId"] =new SelectList (autor,"Id", "NombreAutor"); //todavia no hice el _autorService
-            return View(viewModel);
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
+            return View(libro);
         }
 
         // GET: Libro/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.Libro == null)
             {
                 return NotFound();
             }
 
-            var libro = _libroService.GetById(id.Value);
+            var libro = await _context.Libro.FindAsync(id);
             if (libro == null)
             {
                 return NotFound();
             }
-           // ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId); //aca tambien necesito el _autorService
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
             return View(libro);
         }
 
@@ -109,7 +91,7 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Genero,CantPaginas,AutorId")] Libro libro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Genero,Precio,Stock,AutorId")] Libro libro)
         {
             if (id != libro.Id)
             {
@@ -118,22 +100,39 @@ namespace Libreria.Controllers
 
             if (ModelState.IsValid)
             {
-                _libroService.Update(libro);
+                try
+                {
+                    _context.Update(libro);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!LibroExists(libro.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
-           // ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
             return View(libro);
         }
 
         // GET: Libro/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null )
+            if (id == null || _context.Libro == null)
             {
                 return NotFound();
             }
 
-            var libro = _libroService.GetById(id.Value);
+            var libro = await _context.Libro
+                .Include(l => l.Autor)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (libro == null)
             {
                 return NotFound();
@@ -147,19 +146,23 @@ namespace Libreria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var libro = _libroService.GetById(id);
+            if (_context.Libro == null)
+            {
+                return Problem("Entity set 'AutorContext.Libro'  is null.");
+            }
+            var libro = await _context.Libro.FindAsync(id);
             if (libro != null)
             {
-                _libroService.Delete(libro);
+                _context.Libro.Remove(libro);
             }
             
-            
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LibroExists(int id)
         {
-          return _libroService.GetById(id) != null;
+          return (_context.Libro?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Libreria.Migrations
 {
     [DbContext(typeof(AutorContext))]
-    [Migration("20230507190743_Libros")]
-    partial class Libros
+    [Migration("20230613055848_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,10 +50,13 @@ namespace Libreria.Migrations
                     b.Property<int>("AutorId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("CantPaginas")
+                    b.Property<int>("Genero")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Genero")
+                    b.Property<int>("Precio")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Stock")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Titulo")
@@ -67,6 +70,44 @@ namespace Libreria.Migrations
                     b.ToTable("Libro");
                 });
 
+            modelBuilder.Entity("Libreria.Models.Sucursal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Direccion")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Localidad")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("NombreSucursal")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sucursal");
+                });
+
+            modelBuilder.Entity("LibroSucursal", b =>
+                {
+                    b.Property<int>("LibrosId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("SucursalesId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("LibrosId", "SucursalesId");
+
+                    b.HasIndex("SucursalesId");
+
+                    b.ToTable("LibroSucursal");
+                });
+
             modelBuilder.Entity("Libreria.Models.Libro", b =>
                 {
                     b.HasOne("Libreria.Models.Autor", "Autor")
@@ -76,6 +117,21 @@ namespace Libreria.Migrations
                         .IsRequired();
 
                     b.Navigation("Autor");
+                });
+
+            modelBuilder.Entity("LibroSucursal", b =>
+                {
+                    b.HasOne("Libreria.Models.Libro", null)
+                        .WithMany()
+                        .HasForeignKey("LibrosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Libreria.Models.Sucursal", null)
+                        .WithMany()
+                        .HasForeignKey("SucursalesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Libreria.Models.Autor", b =>

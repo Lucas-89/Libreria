@@ -5,11 +5,26 @@
 namespace Libreria.Migrations
 {
     /// <inheritdoc />
-    public partial class Sucursales : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Autor",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Nombre = table.Column<string>(type: "TEXT", nullable: false),
+                    Nacionalidad = table.Column<string>(type: "TEXT", nullable: false),
+                    Contemporaneo = table.Column<bool>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Autor", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Sucursal",
                 columns: table => new
@@ -23,6 +38,29 @@ namespace Libreria.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sucursal", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Libro",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Titulo = table.Column<string>(type: "TEXT", nullable: false),
+                    Genero = table.Column<int>(type: "INTEGER", nullable: false),
+                    Precio = table.Column<int>(type: "INTEGER", nullable: false),
+                    Stock = table.Column<int>(type: "INTEGER", nullable: false),
+                    AutorId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Libro", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Libro_Autor_AutorId",
+                        column: x => x.AutorId,
+                        principalTable: "Autor",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,6 +88,11 @@ namespace Libreria.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Libro_AutorId",
+                table: "Libro",
+                column: "AutorId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_LibroSucursal_SucursalesId",
                 table: "LibroSucursal",
                 column: "SucursalesId");
@@ -62,7 +105,13 @@ namespace Libreria.Migrations
                 name: "LibroSucursal");
 
             migrationBuilder.DropTable(
+                name: "Libro");
+
+            migrationBuilder.DropTable(
                 name: "Sucursal");
+
+            migrationBuilder.DropTable(
+                name: "Autor");
         }
     }
 }

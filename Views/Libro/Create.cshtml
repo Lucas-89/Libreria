@@ -1,13 +1,10 @@
-@using Libreria.ViewModels
-
-@model LibroCreateViewModel
+@model Libreria.Models.Libro
 
 @{
     ViewData["Title"] = "Create";
-    var autorList =ViewData["autores"];
 }
 
-<h1>Creacion de Libro</h1>
+<h1>Create</h1>
 
 <h4>Libro</h4>
 <hr />
@@ -33,13 +30,18 @@
                 <span asp-validation-for="Genero" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CantPaginas" class="control-label"></label>
-                <input asp-for="CantPaginas" class="form-control" />
-                <span asp-validation-for="CantPaginas" class="text-danger"></span>
+                <label asp-for="Precio" class="control-label"></label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stock" class="control-label"></label>
+                <input asp-for="Stock" class="form-control" />
+                <span asp-validation-for="Stock" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AutorId" class="control-label"></label>
-                <select asp-for="AutorId" class ="form-control" asp-items="ViewBag.autores"></select>
+                <select asp-for="AutorId" class ="form-control" asp-items="ViewBag.AutorId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -49,7 +51,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Volver</a>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

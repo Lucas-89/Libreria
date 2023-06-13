@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-
-using Libreria.Models;
 using Libreria.Data;
+using Libreria.Models;
 
 namespace Libreria.Controllers
 {
@@ -25,7 +24,7 @@ namespace Libreria.Controllers
         {
               return _context.Sucursal != null ? 
                           View(await _context.Sucursal.ToListAsync()) :
-                          Problem("Entity set 'SucursalContext.Sucursal'  is null.");
+                          Problem("Entity set 'AutorContext.Sucursal'  is null.");
         }
 
         // GET: Sucursal/Details/5
@@ -144,7 +143,7 @@ namespace Libreria.Controllers
         {
             if (_context.Sucursal == null)
             {
-                return Problem("Entity set 'SucursalContext.Sucursal'  is null.");
+                return Problem("Entity set 'AutorContext.Sucursal'  is null.");
             }
             var sucursal = await _context.Sucursal.FindAsync(id);
             if (sucursal != null)

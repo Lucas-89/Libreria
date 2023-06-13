@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YlT6Rs6K0cEdr5pifoQ8Oun7S8chy71TLfGIY7/FYqS7afBA6SgCxhgNnh1k//UvU4EM3gr5+2NQp3rPIhuuGQ==",
+  "dgSpecHash": "qSo6eRtfmwFsC+tiXlc3B7cVfkNH7YSzvWS+EhNzg2g9BrxBkLY2eVFTgiM/eThGBeAXSxGsFAm8Us3thRLZzw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lucas\\OneDrive\\Documentos\\ISTEA\\2023\\Herramientas 2023\\Libreria-1\\Libreria.csproj",
+  "projectFilePath": "C:\\Users\\Lucas\\OneDrive\\Desktop\\Libreria\\Libreria\\Libreria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lucas\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Lucas\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
