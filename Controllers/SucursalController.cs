@@ -59,6 +59,7 @@ namespace Libreria.Controllers
         // GET: Sucursal/Create
         public IActionResult Create()
         {
+            ViewData["Libros"] = new SelectList(_context.Libro.ToList(), "Id","Titulo"); 
             return View();
         }
 
@@ -67,18 +68,20 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad")] SucursalCreateViewModel sucursalView)
+        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad,LibroId")] SucursalCreateViewModel sucursalView)
         {
             
 
             if (ModelState.IsValid)
-            {
+            {   
+                var libros = _context.Libro.Where(x => sucursalView.LibroId.Contains(x.Id)).ToList(); //traigo todos los libros y los guardo en la variable
+
                 var sucursal = new Sucursal();
                 sucursal.Id = sucursalView.Id;
                 sucursal.NombreSucursal = sucursalView.NombreSucursal;
                 sucursal.Direccion = sucursalView.Direccion;
                 sucursal.Localidad = sucursalView.Localidad;
-
+                sucursal.Libros = libros;
 
                 _context.Add(sucursal);
                 await _context.SaveChangesAsync();

@@ -12,7 +12,8 @@ namespace Libreria.ViewModels
         public int Id {get;set;}
         public string NombreSucursal {get;set;}
         public string Direccion {get;set;}
-        public string Localidad{get;set;}
+        public string Localidad {get;set;}
+        public List<int> LibroId {get;set;}
        // public Libro Libro {get;set;}
     }
 }

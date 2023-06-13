@@ -56,7 +56,7 @@ namespace Libreria.Controllers
         // GET: Libro/Create
         public IActionResult Create()
         {
-            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id");
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Nombre");
             return View();
         }
 
@@ -84,7 +84,7 @@ namespace Libreria.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Nombre", libro.AutorId);
             return View(libro);
         }
 
@@ -101,7 +101,7 @@ namespace Libreria.Controllers
             {
                 return NotFound();
             }
-            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Nombre", libro.AutorId);
             return View(libro);
         }
 
@@ -144,7 +144,7 @@ namespace Libreria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Id", libro.AutorId);
+            ViewData["AutorId"] = new SelectList(_context.Autor, "Id", "Nombre", libro.AutorId);
             return View(libro);
         }
 
