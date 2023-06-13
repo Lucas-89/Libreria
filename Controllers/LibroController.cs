@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
+using Libreria.ViewModels;
 
 namespace Libreria.Controllers
 {
@@ -20,10 +21,17 @@ namespace Libreria.Controllers
         }
 
         // GET: Libro
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string NombreBuscado)
         {
+            var query = from libro in _context.Libro select libro;
+            if (!string.IsNullOrEmpty(NombreBuscado))
+            {
+                query = query.Where(x =>x.Titulo.ToLower().Contains(NombreBuscado));
+            }
+            var model = new LibroViewModel();
+            model.Libros = await query.ToListAsync();
             var autorContext = _context.Libro.Include(l => l.Autor);
-            return View(await autorContext.ToListAsync());
+            return View(model);
         }
 
         // GET: Libro/Details/5
@@ -57,11 +65,22 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,Precio,Stock,AutorId")] Libro libro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Genero,Precio,Stock,AutorId,autores")] LibroCreateViewModel libro)
         {
+            var autores = from autor in _context.Autor select autor;
+
+            var libroNuevo = new Libro();
+            libroNuevo.Id = libro.Id;
+            libroNuevo.Titulo = libro.Titulo;
+            libroNuevo.Genero = libro.Genero;
+            libroNuevo.Precio = libro.Precio;
+            libroNuevo.Stock = libro.Stock;
+            libroNuevo.AutorId = libro.AutorId;
+            
+            // ModelState.Remove("A");
             if (ModelState.IsValid)
             {
-                _context.Add(libro);
+                _context.Add(libroNuevo);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

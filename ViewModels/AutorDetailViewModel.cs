@@ -12,6 +12,7 @@ namespace Libreria.ViewModels
         public int Id{get;set;}
         public string Nombre{get;set;}
         public string Nacionalidad{get;set;}
+        public bool Contemporaneo{get;set;}
         public List<Libro> Libros{get;set;} 
     }
 }

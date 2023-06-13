@@ -46,14 +46,19 @@ namespace Libreria.Controllers
                 return NotFound();
             }
 
-            var autor = await _context.Autor
+            var autor = await _context.Autor.Include(x=>x.Libros)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (autor == null)
             {
                 return NotFound();
             }
+            var viewModel = new AutorDetailViewModel();
+            viewModel.Nombre = autor.Nombre;
+            viewModel.Nacionalidad = autor.Nacionalidad;
+            viewModel.Contemporaneo = autor.Contemporaneo;
+            viewModel.Libros= autor.Libros !=null? autor.Libros : new List<Libro>();
 
-            return View(autor);
+            return View(viewModel);
         }
 
         // GET: Autor/Create
