@@ -67,15 +67,24 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad")] SucursalCreateViewModel sucursal)
+        public async Task<IActionResult> Create([Bind("Id,NombreSucursal,Direccion,Localidad")] SucursalCreateViewModel sucursalView)
         {
+            
+
             if (ModelState.IsValid)
             {
+                var sucursal = new Sucursal();
+                sucursal.Id = sucursalView.Id;
+                sucursal.NombreSucursal = sucursalView.NombreSucursal;
+                sucursal.Direccion = sucursalView.Direccion;
+                sucursal.Localidad = sucursalView.Localidad;
+
+
                 _context.Add(sucursal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(sucursal);
+            return View(sucursalView);
         }
 
         // GET: Sucursal/Edit/5
@@ -99,15 +108,21 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreSucursal,Direccion,Localidad")] Sucursal sucursal)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NombreSucursal,Direccion,Localidad")] SucursalCreateViewModel sucursalView)
         {
-            if (id != sucursal.Id)
+            if (id != sucursalView.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                var sucursal = new Sucursal();
+                sucursal.Id = sucursalView.Id;
+                sucursal.NombreSucursal = sucursalView.NombreSucursal;
+                sucursal.Direccion = sucursalView.Direccion;
+                sucursal.Localidad = sucursalView.Localidad;
+
                 try
                 {
                     _context.Update(sucursal);
@@ -126,7 +141,7 @@ namespace Libreria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(sucursal);
+            return View(sucursalView);
         }
 
         // GET: Sucursal/Delete/5

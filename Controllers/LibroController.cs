@@ -110,7 +110,7 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Genero,Precio,Stock,AutorId")] Libro libro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Genero,Precio,Stock,AutorId")] LibroCreateViewModel libro)
         {
             if (id != libro.Id)
             {
@@ -119,14 +119,21 @@ namespace Libreria.Controllers
 
             if (ModelState.IsValid)
             {
+                var libroNuevo = new Libro();
+                libroNuevo.Id = libro.Id;
+                libroNuevo.Titulo = libro.Titulo;
+                libroNuevo.Genero = libro.Genero;
+                libroNuevo.Precio = libro.Precio;
+                libroNuevo.Stock = libro.Stock;
+                libroNuevo.AutorId = libro.AutorId;
                 try
                 {
-                    _context.Update(libro);
+                    _context.Update(libroNuevo);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!LibroExists(libro.Id))
+                    if (!LibroExists(libroNuevo.Id)) // tengo dudas aca
                     {
                         return NotFound();
                     }

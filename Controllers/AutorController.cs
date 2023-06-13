@@ -110,15 +110,21 @@ namespace Libreria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Nacionalidad,Contemporaneo")] AutorCreateViewModel autor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Nacionalidad,Contemporaneo")] AutorCreateViewModel autorView)
         {
-            if (id != autor.Id)
+            if (id != autorView.Id)
             {
                 return NotFound();
             }
 
             if (ModelState.IsValid)
             {
+                var autor = new Autor();
+                autor.Id = autorView.Id;
+                autor.Nombre = autorView.Nombre;
+                autor.Nacionalidad = autorView.Nacionalidad;
+                autor.Contemporaneo = autorView.Contemporaneo;
+
                 try
                 {
                     _context.Update(autor);
@@ -137,7 +143,7 @@ namespace Libreria.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(autor);
+            return View(autorView);
         }
 
         // GET: Autor/Delete/5
