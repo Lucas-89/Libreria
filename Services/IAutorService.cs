@@ -9,10 +9,9 @@ namespace Libreria.Services
     public interface IAutorService
     {
         void Create(Autor obj);
-        List<Autor>GetAll();
-        List<Autor>GetAll(string filter);
-        void Update(Autor obj);
-        void Delete(int id);
-        Autor? GetById(int id);
+        List<Autor> GetAll();
+        void Update(Autor obj );  
+        void Delete(Autor obj);
+        Autor GetById(int id);
     }
 }

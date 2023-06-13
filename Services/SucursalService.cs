@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Libreria.Services
 {
-    public class LibroService
+    public class SucursalService
     {
         
     }
