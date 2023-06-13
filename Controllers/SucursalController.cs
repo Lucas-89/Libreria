@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Libreria.Data;
 using Libreria.Models;
+using Libreria.ViewModels;
 
 namespace Libreria.Controllers
 {
@@ -20,10 +21,20 @@ namespace Libreria.Controllers
         }
 
         // GET: Sucursal
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string NombreBuscado)
         {
+            var query = from sucursal in _context.Autor select sucursal;
+
+            if (!string.IsNullOrEmpty(NombreBuscado))
+            {
+                query = query.Where(x => x.Nombre.ToLower().Contains(NombreBuscado.ToLower()));
+            }
+
+            var model = new SucursalViewModel();
+            model.Sucursales = await _context.Sucursal.ToListAsync();
+
               return _context.Sucursal != null ? 
-                          View(await _context.Sucursal.ToListAsync()) :
+                          View(model) :
                           Problem("Entity set 'AutorContext.Sucursal'  is null.");
         }
 

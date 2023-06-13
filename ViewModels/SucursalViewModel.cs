@@ -9,6 +9,7 @@ namespace Libreria.ViewModels
     public class SucursalViewModel
     {
         public List<Sucursal> Sucursales {get; set;} =new();
-        public string NombreFiltrado{get;set;} 
+        public string NombreBuscado{get;set;} 
+        public Libro Libro{get;set;}
     }
 }

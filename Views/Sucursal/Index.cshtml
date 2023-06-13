@@ -1,4 +1,6 @@
-@model IEnumerable<Libreria.Models.Sucursal>
+@using Libreria.ViewModels
+
+@model SucursalViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,23 +11,33 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="row">
+    <form method="get" asp-action="Index" asp-controller="Sucursal">
+        <div class="col-6 form-group">
+            <input class="form-control" asp-for="NombreBuscado">
+        </div>
+        <button class="btn btn-primary">Buscar</button>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NombreSucursal)
+                @Html.DisplayNameFor(model => model.Sucursales[0].NombreSucursal)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Direccion)
+                @Html.DisplayNameFor(model => model.Sucursales[0].Direccion)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Localidad)
+                @Html.DisplayNameFor(model => model.Sucursales[0].Localidad)
             </th>
-            <th></th>
+            <th>
+                @* @Html.DisplayFor(model => model.Sucursales[0].Libros.) *@
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Sucursales) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NombreSucursal)
